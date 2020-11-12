@@ -1,0 +1,60 @@
+<!--
+ * @Author: Agnes.mahengmin
+ * @Date: 2020-11-11 08:32:42
+ * @LastEditTime: 2020-11-11 08:42:37
+ * @LastEditors: Agnes.mahengmin
+ * @Description: 
+ * @FilePath: /MYECHARTS/ECharts使用步骤.html
+ * @版权声明
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+        步骤1:下载并引入echarts.js文件
+        步骤2:准备一个具备大小的DOM容器
+        步骤3:初始化echarts实例对象
+        步骤4:指定配置项和数据（option）
+        步骤5:将配置项设置给echarts实例对象
+     -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 600px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="js/echarts.min.js"></script>
+    <script>
+        // 初始化实例对象 echarts.init(dom容器);
+        var myChart = echarts.init(document.querySelector('.box'));
+        // 指定配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+        // 把配置项给实例对象
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
